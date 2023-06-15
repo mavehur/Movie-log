@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { TitleStrategy } from "@angular/router";
 
 @Component({
     selector: 'app-movies',
@@ -8,6 +9,7 @@ export class MovieListComponent {
     subTitle: string = 'MovieList';
     imgWidth: number = 55;
     imgMargin: number = 2;
+    isImgDisplayed: boolean = false;
     movies: any[] = [
         {
             "movieId": 0,
@@ -16,7 +18,7 @@ export class MovieListComponent {
             "releaseDate": "2023-May-30",
             "cast": "Nemo",
             "rating": 5,
-            "imageUrl": "assets/images/FindingNemo.jpeg",
+            "imageUrl": "assets/images/FindingNemo.jpeg"
         }, 
         {
             "movieId": 1,
@@ -25,8 +27,11 @@ export class MovieListComponent {
             "releaseDate": "1989-May-18",
             "cast": ["Wallace", "Gromit"],
             "rating": 5,
-            "imageUrl": "assets/images/WallaceandGromit.jpg",
+            "imageUrl": "assets/images/WallaceandGromit.jpg"
         }
     ];
+    public toggleImg(): void {
+        this.isImgDisplayed = !this.isImgDisplayed;
+    }
 
 }
