@@ -26,6 +26,7 @@
               <th>Released Date</th>
               <th>Cast</th>
               <th>Rating</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody>
@@ -39,10 +40,11 @@
               </td>
               <td>{{ movie.name | titlecase }}</td>
               <td>{{ movie.director | titlecase }}</td>
-              <td>{{ movie.releaseDate | date: "MMM d, y" }}</td>
+              <td>{{ movie.releaseDate | date: "MM d, y" }}</td>
               <td>{{ movie.cast | titlecase }}</td>
               <!-- Upto one decimal place -->
               <td>{{ movie.rating | number: "1.1"}}</td>
+              <td>{{ movie.price | currency: "CAD" : "symbol" : "1.2-2"}}</td>
             </tr>>
           </tbody>
         </table>
