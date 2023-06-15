@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col-md-2">filter:</div>
         <div class="col-md-4">
-          <input type="text" />
+          <input [(ngModel)]="filterText" type="text" />
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <h4>filter:</h4>
+          <h4>filter: {{filterText}}</h4>
         </div>
       </div>
       <div class="table-responsive">
@@ -37,11 +37,12 @@
                     [style.width.px]="imgWidth"
                     [style.margin.px]="imgMargin">
               </td>
-              <td>{{ movie.name }}</td>
-              <td>{{ movie.director }}</td>
-              <td>{{ movie.releaseDate }}</td>
-              <td>{{ movie.cast }}</td>
-              <td>{{ movie.rating }}</td>
+              <td>{{ movie.name | titlecase }}</td>
+              <td>{{ movie.director | titlecase }}</td>
+              <td>{{ movie.releaseDate | date: "MMM d, y" }}</td>
+              <td>{{ movie.cast | titlecase }}</td>
+              <!-- Upto one decimal place -->
+              <td>{{ movie.rating | number: "1.1"}}</td>
             </tr>>
           </tbody>
         </table>

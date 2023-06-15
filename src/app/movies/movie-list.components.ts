@@ -10,12 +10,13 @@ export class MovieListComponent {
     imgWidth: number = 55;
     imgMargin: number = 2;
     isImgDisplayed: boolean = false;
+    filterText = "Finding Nemo";
     movies: any[] = [
         {
             "movieId": 0,
             "name": "Finding Nemo",
             "director": "Andrew Stanton",
-            "releaseDate": "2023-May-30",
+            "releaseDate": "2003-May-30",
             "cast": "Nemo",
             "rating": 5,
             "imageUrl": "assets/images/FindingNemo.jpeg"
