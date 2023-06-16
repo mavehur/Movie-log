@@ -14,11 +14,11 @@
       </div>
       <div class="table-responsive">
         <table class="table" *ngIf="movies.length">
-          <thead class="table-head">
+          <thead>
             <tr>
               <th>
                 <button (click)="toggleImg()" class="btn-primary">
-                  {{ isImgDisplayed ? "show image":"hide-image"}}
+                  {{ isImgDisplayed ? "Hide Image":"Show Image"}}
                 </button>
               </th>
               <th>Movie</th>
@@ -30,15 +30,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let movie of movies">
+            <tr *ngFor="let movie of filteredMovies">
               <td>
                 <img *ngIf="isImgDisplayed"
                     [src]="movie.imageUrl"
-                    [title]="movie.name"
+                    [title]="movie.name | titlecase"
                     [style.width.px]="imgWidth"
                     [style.margin.px]="imgMargin">
               </td>
-              <td>{{ movie.name | titlecase | convert: "-" : "" }}</td>
+              <td>{{ movie.name | titlecase | convert: "_" : "-" }}</td>
               <td>{{ movie.director | titlecase }}</td>
               <td>{{ movie.releaseDate | date: "MMMM d, y" }}</td>
               <td>{{ movie.cast | titlecase }}</td>

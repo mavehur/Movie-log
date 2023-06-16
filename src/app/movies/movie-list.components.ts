@@ -12,7 +12,18 @@ export class MovieListComponent implements OnInit{
     imgWidth: number = 55;
     imgMargin: number = 2;
     isImgDisplayed: boolean = false;
-    filterText = "Finding Nemo";
+
+    // filterText = "Finding Nemo";
+    private _filterText = "";
+    get filterText(): string {
+        return this._filterText;
+    }
+    public set filterText(v: string) {
+        this._filterText = v;
+        this.filteredMovies = this.performFilter(v);
+        // console.log("setter: ", v);
+    }
+    filteredMovies: movie[] = [];
     movies: movie[] = [
         {
             movieId: 0,
@@ -40,6 +51,12 @@ export class MovieListComponent implements OnInit{
     }
     public ngOnInit(): void {
         console.log("Angular Life Cycle: ngOnInit()");
+    }
+    public performFilter(filterBy: string): movie[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.movies.filter((movie: movie)=>{
+            return movie.name.toLocaleLowerCase().includes(filterBy);
+        });
     }
 
 }
