@@ -14,7 +14,7 @@
       </div>
       <div class="table-responsive">
         <table class="table" *ngIf="movies.length">
-          <thead>
+          <thead class="table-head">
             <tr>
               <th>
                 <button (click)="toggleImg()" class="btn-primary">
@@ -40,7 +40,7 @@
               </td>
               <td>{{ movie.name | titlecase }}</td>
               <td>{{ movie.director | titlecase }}</td>
-              <td>{{ movie.releaseDate | date: "MM d, y" }}</td>
+              <td>{{ movie.releaseDate | date: "MMMM d, y" }}</td>
               <td>{{ movie.cast | titlecase }}</td>
               <!-- Upto one decimal place -->
               <td>{{ movie.rating | number: "1.1"}}</td>
