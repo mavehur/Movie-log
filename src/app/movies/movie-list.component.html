@@ -38,7 +38,7 @@
                     [style.width.px]="imgWidth"
                     [style.margin.px]="imgMargin">
               </td>
-              <td>{{ movie.name | titlecase }}</td>
+              <td>{{ movie.name | titlecase | convert: "-" : "" }}</td>
               <td>{{ movie.director | titlecase }}</td>
               <td>{{ movie.releaseDate | date: "MMMM d, y" }}</td>
               <td>{{ movie.cast | titlecase }}</td>
