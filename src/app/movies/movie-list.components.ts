@@ -1,12 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { TitleStrategy } from "@angular/router";
 import { movie } from "./movie.model";
+import { MovieService } from "./movie.service";
 
 
 @Component({
     selector: 'app-movies',
     templateUrl: './movie-list.component.html',
-    styleUrls: ['./movie-list.component.scss']
+    styleUrls: ['./movie-list.component.scss'],
+    providers: [MovieService]
 })
 export class MovieListComponent implements OnInit{
     subTitle: string = 'MovieList';
@@ -25,40 +27,27 @@ export class MovieListComponent implements OnInit{
         // console.log("setter: ", v);
     }
     filteredMovies: movie[] = [];
-    movies: movie[] = [
-        {
-            movieId: 0,
-            name: "Finding Nemo",
-            director: "Andrew Stanton",
-            releaseDate: "2003-May-30",
-            cast: "Nemo",
-            rating: 5,
-            imageUrl: "assets/images/FindingNemo.jpeg",
-            price: 0
-        }, 
-        {
-            movieId: 1,
-            name: "Wallace and Gromit - A Grand Day Out",
-            director: "Nick Park",
-            releaseDate: "1989-May-18",
-            cast: "Wallace, Gromit",
-            rating: 3,
-            imageUrl: "assets/images/WallaceandGromit.jpg",
-            price: 1
-        }
-    ];
+    movies: movie[] = [];
+
+    constructor(private movieService: MovieService) {}    
+
     public toggleImg(): void {
         this.isImgDisplayed = !this.isImgDisplayed;
     }
+
     public ngOnInit(): void {
-        console.log("Angular Life Cycle: ngOnInit()");
+        this.movies = this.movieService.getMovies();
+        this.filteredMovies = this.movies;
+        // console.log("Angular Life Cycle: ngOnInit()");
     }
+
     public performFilter(filterBy: string): movie[] {
         filterBy = filterBy.toLocaleLowerCase();
         return this.movies.filter((movie: movie)=>{
             return movie.name.toLocaleLowerCase().includes(filterBy);
         });
     }
+
     public callFromStar(rating: number) {
         console.log("from star:", rating)
     }
