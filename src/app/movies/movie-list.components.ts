@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { TitleStrategy } from "@angular/router";
 import { movie } from "./movie.model";
 
+
 @Component({
     selector: 'app-movies',
     templateUrl: './movie-list.component.html',
@@ -41,7 +42,7 @@ export class MovieListComponent implements OnInit{
             director: "Nick Park",
             releaseDate: "1989-May-18",
             cast: "Wallace, Gromit",
-            rating: 5,
+            rating: 3,
             imageUrl: "assets/images/WallaceandGromit.jpg",
             price: 1
         }
@@ -57,6 +58,9 @@ export class MovieListComponent implements OnInit{
         return this.movies.filter((movie: movie)=>{
             return movie.name.toLocaleLowerCase().includes(filterBy);
         });
+    }
+    public callFromStar(rating: number) {
+        console.log("from star:", rating)
     }
 
 }

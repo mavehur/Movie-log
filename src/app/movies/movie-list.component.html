@@ -43,7 +43,9 @@
               <td>{{ movie.releaseDate | date: "MMMM d, y" }}</td>
               <td>{{ movie.cast | titlecase }}</td>
               <!-- Upto one decimal place -->
-              <td>{{ movie.rating | number: "1.1"}}</td>
+              <!-- <td>{{ movie.rating | number: "1.1"}}</td> -->
+              <td><app-star-score [rating]="movie.rating"
+                (call)="callFromStar($event)"></app-star-score></td>
               <td>{{ movie.price | currency: "CAD" : "symbol" : "1.2-2"}}</td>
             </tr>>
           </tbody>
