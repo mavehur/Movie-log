@@ -1,27 +1,12 @@
-# FirstAngular
+# Movie-log 🎬
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Display the table (Movie list) only if there is movie data in the array using **ngIf**.
+2. Iterate over the table rows for each movie data in the movie array using **ngFor**.
+3. Bind a movie name, a title property, a width, and a margin property of an image using **property binding**.
+4. Show or hide movie images with a button click using **event binding**.
+5. If a value has been previously entered, display it in the filtering input, and when the user enters a new value, output the filtered movie array using **two-way binding (ngModel)**, **getter/setter**.
+6. Convert movie name, director, release date, cast, rating, and price data using **built-in pipes**.
+7. Convert "_" to "-" in the movie name using **customed pipes**.
+8. When rating changes in the parent component (movies), update the star score in the child component (star-score) using **OnChanges** and **Input/Output decorators**.
+9. Fetch the movie data and assign it back to the movie array using **Service** in the **ngOnInit lifecycle hook**.
+10. Initialize all data taken from filteredMovies so that all movies are visible on the initial screen using **ngOnInit lifecycle hook**.
