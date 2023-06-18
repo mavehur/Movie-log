@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title: string = 'first-angular';
+  title: string = 'Movie_log';
 
   getTitle(): string {
     return this.title;

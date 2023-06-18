@@ -18,7 +18,7 @@
             <tr>
               <th>
                 <button (click)="toggleImg()" class="btn-primary">
-                  {{ isImgDisplayed ? "show image":"hide-image"}}
+                  {{ isImgDisplayed ? "Hide Image":"Show Image"}}
                 </button>
               </th>
               <th>Movie</th>
@@ -26,23 +26,27 @@
               <th>Released Date</th>
               <th>Cast</th>
               <th>Rating</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let movie of movies">
+            <tr *ngFor="let movie of filteredMovies">
               <td>
                 <img *ngIf="isImgDisplayed"
                     [src]="movie.imageUrl"
-                    [title]="movie.name"
+                    [title]="movie.name | titlecase"
                     [style.width.px]="imgWidth"
                     [style.margin.px]="imgMargin">
               </td>
-              <td>{{ movie.name | titlecase }}</td>
+              <td>{{ movie.name | titlecase | convert: "_" : "-" }}</td>
               <td>{{ movie.director | titlecase }}</td>
-              <td>{{ movie.releaseDate | date: "MMM d, y" }}</td>
+              <td>{{ movie.releaseDate | date: "MMMM d, y" }}</td>
               <td>{{ movie.cast | titlecase }}</td>
               <!-- Upto one decimal place -->
-              <td>{{ movie.rating | number: "1.1"}}</td>
+              <!-- <td>{{ movie.rating | number: "1.1"}}</td> -->
+              <td><app-star-score [rating]="movie.rating"
+                (call)="callFromStar($event)"></app-star-score></td>
+              <td>{{ movie.price | currency: "CAD" : "symbol" : "1.2-2"}}</td>
             </tr>>
           </tbody>
         </table>
