@@ -1,5 +1,6 @@
 # Movie-log 🎬
 
+## Completed Features
 1. Display the table (Movie list) only if there is movie data in the array using **ngIf**.
 2. Iterate over the table rows for each movie data in the movie array using **ngFor**.
 3. Bind a movie name, a title property, a width, and a margin property of an image using **property binding**.
